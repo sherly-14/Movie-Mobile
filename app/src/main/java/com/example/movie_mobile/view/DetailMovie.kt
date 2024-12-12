@@ -56,9 +56,24 @@ fun DetailScreen(){
 
             Spacer(modifier = Modifier.height(4.dp))
 
+            // Rating dan Durasi
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "4.3",
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(start = 4.dp)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "• 58 mins",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.Gray
+                )
+            }
         }
     }
-
 }
 
 @Preview(showBackground = true)

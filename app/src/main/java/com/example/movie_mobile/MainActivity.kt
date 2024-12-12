@@ -10,8 +10,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.movie_mobile.ui.theme.MovieMobileTheme
+import com.example.movie_mobile.view.HomePage
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,29 +21,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MovieMobileTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                HomePage(
+                    onAllClicked = { /* TODO: Implement All Clicked */ },
+                    onMoviesClicked = { /* TODO: Implement Movies Clicked */ },
+                    onSeriesClicked = { /* TODO: Implement Series Clicked */ },
+                    onSearchClicked = { /* TODO: Implement Search Clicked */ }
+                )
                 }
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MovieMobileTheme {
-        Greeting("Android")
-    }
-}

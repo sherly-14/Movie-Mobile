@@ -75,6 +75,12 @@ fun HomePage(
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        when (selectedTab) {
+            "All" -> AllContent()
+            "Movies" -> MoviesContent()
+            "Series" -> SeriesContent()
+        }
+
     }
 }
 

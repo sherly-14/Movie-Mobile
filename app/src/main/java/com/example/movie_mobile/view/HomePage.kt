@@ -1,4 +1,4 @@
-package com.example.movie
+package com.example.movie_mobile.view
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.movie_mobile.R
+
 
 @Composable
 fun HomePage(
@@ -43,31 +43,31 @@ fun HomePage(
                     selectedTab = "All"
                     onAllClicked()  // Mengaktifkan callback untuk All
                 },
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA70000))
             ) {
                 Text("All")
             }
-
+            Spacer(modifier = Modifier.width(8.dp))
             Button(
                 onClick = {
                     selectedTab = "Movies"
                     onMoviesClicked()  // Mengaktifkan callback untuk Movies
                 },
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA70000))
             ) {
                 Text("Movies")
             }
-
+            Spacer(modifier = Modifier.width(8.dp))
             Button(
                 onClick = {
                     selectedTab = "Series"
                     onSeriesClicked()  // Mengaktifkan callback untuk Series
                 },
-                colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA70000))
             ) {
                 Text("Series")
             }
-
+            Spacer(modifier = Modifier.width(8.dp))
             IconButton(onClick = onSearchClicked) {
                 Icon(Icons.Default.Search, contentDescription = "Search")
             }
@@ -75,193 +75,8 @@ fun HomePage(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Content based on selected tab
-        when (selectedTab) {
-            "All" -> {
-                Text(
-                    text = "Trending Movies",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(horizontal = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(trendingMoviesImages.size) { index ->
-                        Image(
-                            painter = painterResource(trendingMoviesImages[index]),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .width(200.dp)
-                                .height(300.dp)
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = "Trending Series",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(horizontal = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(trendingSeriesImages.size) { index ->
-                        Image(
-                            painter = painterResource(trendingSeriesImages[index]),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .width(200.dp)
-                                .height(300.dp)
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = "Movie For You",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(horizontal = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(trendingMoviesImages.size) { index ->
-                        Image(
-                            painter = painterResource(trendingMoviesImages[index]),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .width(200.dp)
-                                .height(300.dp)
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = "Series For You",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(horizontal = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(trendingSeriesImages.size) { index ->
-                        Image(
-                            painter = painterResource(trendingSeriesImages[index]),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .width(200.dp)
-                                .height(300.dp)
-                        )
-                    }
-                }
-            }
-            "Movies" -> {
-                Text(
-                    text = "Trending Movies",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(horizontal = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(trendingMoviesImages.size) { index ->
-                        Image(
-                            painter = painterResource(trendingMoviesImages[index]),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .width(200.dp)
-                                .height(300.dp)
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = "Movies For You",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(horizontal = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(trendingMoviesImages.size) { index ->
-                        Image(
-                            painter = painterResource(trendingMoviesImages[index]),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .width(200.dp)
-                                .height(300.dp)
-                        )
-                    }
-                }
-            }
-            "Series" -> {
-                Text(
-                    text = "Trending Series",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(horizontal = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(trendingSeriesImages.size) { index ->
-                        Image(
-                            painter = painterResource(trendingSeriesImages[index]),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .width(200.dp)
-                                .height(300.dp)
-                        )
-                    }
-                }
-                Spacer(modifier = Modifier.height(16.dp))
-
-                Text(
-                    text = "Series For You",
-                    style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
-                )
-                LazyRow(
-                    contentPadding = PaddingValues(horizontal = 8.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp)
-                ) {
-                    items(trendingSeriesImages.size) { index ->
-                        Image(
-                            painter = painterResource(trendingSeriesImages[index]),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .width(200.dp)
-                                .height(300.dp)
-                        )
-                    }
-                }
-            }
-        }
     }
 }
-
-// Trending Movies
-private val trendingMoviesImages = listOf(
-    R.drawable.look_back,
-    R.drawable.hq,
-    R.drawable.challengers,
-    R.drawable.how_to_make_millions,
-    R.drawable.maxxxine,
-    R.drawable.gladiator,
-    R.drawable.mean_girls
-)
-
-// Trending Series
-private val trendingSeriesImages = listOf(
-    R.drawable.shrinking,
-    R.drawable.pachinko,
-    R.drawable.bad_monkey,
-    R.drawable.hacks,
-    R.drawable.arcane,
-    R.drawable.slow_horses,
-    R.drawable.only_murders
-)
 
 
 @Composable
@@ -275,6 +90,172 @@ fun SelectQuantityButton(
         modifier = modifier.widthIn(min = 250.dp)
     ) {
         Text(stringResource(labelResourceId))
+    }
+}
+
+@Composable
+fun AllContent() {
+    Text(
+        text = "Trending Movies",
+        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+    )
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(trendingMoviesImages.size) { index ->
+            Image(
+                painter = painterResource(trendingMoviesImages[index]),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(300.dp)
+            )
+        }
+    }
+    Spacer(modifier = Modifier.height(16.dp))
+
+    Text(
+        text = "Trending Series",
+        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+    )
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(trendingSeriesImages.size) { index ->
+            Image(
+                painter = painterResource(trendingSeriesImages[index]),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(300.dp)
+            )
+        }
+    }
+    Spacer(modifier = Modifier.height(16.dp))
+
+    Text(
+        text = "Movies For You",
+        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+    )
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(trendingMoviesImages.size) { index ->
+            Image(
+                painter = painterResource(trendingMoviesImages[index]),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(300.dp)
+            )
+        }
+    }
+    Spacer(modifier = Modifier.height(16.dp))
+
+    Text(
+        text = "Series For You",
+        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+    )
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(trendingSeriesImages.size) { index ->
+            Image(
+                painter = painterResource(trendingSeriesImages[index]),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(300.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun MoviesContent() {
+    Text(
+        text = "Trending Movies",
+        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+    )
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(trendingMoviesImages.size) { index ->
+            Image(
+                painter = painterResource(trendingMoviesImages[index]),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(300.dp)
+            )
+        }
+    }
+    Spacer(modifier = Modifier.height(16.dp))
+
+    Text(
+        text = "Movies For You",
+        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+    )
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(trendingMoviesImages.size) { index ->
+            Image(
+                painter = painterResource(trendingMoviesImages[index]),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(300.dp)
+            )
+        }
+    }
+}
+
+@Composable
+fun SeriesContent() {
+    Text(
+        text = "Trending Series",
+        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+    )
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(trendingSeriesImages.size) { index ->
+            Image(
+                painter = painterResource(trendingSeriesImages[index]),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(300.dp)
+            )
+        }
+    }
+    Spacer(modifier = Modifier.height(16.dp))
+
+    Text(
+        text = "Series For You",
+        style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+    )
+    LazyRow(
+        contentPadding = PaddingValues(horizontal = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        items(trendingSeriesImages.size) { index ->
+            Image(
+                painter = painterResource(trendingSeriesImages[index]),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(200.dp)
+                    .height(300.dp)
+            )
+        }
     }
 }
 

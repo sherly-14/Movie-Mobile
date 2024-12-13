@@ -13,7 +13,7 @@ data class Movie(
     val director: String,
     val actors: String,
     val synopsis: String,
-    val imageResId: Int // Resource ID untuk gambar
+    val imageResId: Int
 )
 
 class MovieViewModel : ViewModel() {
@@ -28,7 +28,6 @@ class MovieViewModel : ViewModel() {
                     "Kyomoto, a truant recluse whose beautiful artwork sparks a competitive fervor " +
                     "in Fujino. What starts as jealousy transforms when Fujino realizes their shared " +
                     "passion for drawing.", R.drawable.look_back),
-            // Tambahkan film lainnya jika diperlukan
         )
     }
 

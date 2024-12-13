@@ -111,12 +111,10 @@ fun AllContent(navController: NavHostController, movies: List<Movie>) {
 
     Spacer(modifier = Modifier.height(16.dp))
 
-    // Konten untuk serial
     Text(
         text = "Trending Series",
         style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
     )
-    // Gantilah dengan daftar serial yang sesuai
     LazyRow(
         contentPadding = PaddingValues(horizontal = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -224,7 +222,6 @@ fun SeriesContent(navController: NavController) {
         text = "Trending Series",
         style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
     )
-    // Gantilah dengan daftar serial yang sesuai
     LazyRow(
         contentPadding = PaddingValues(horizontal = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -262,7 +259,7 @@ fun SeriesContent(navController: NavController) {
 }
 
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun HomePagePreview() {
     val navController = rememberNavController()

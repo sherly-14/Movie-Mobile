@@ -2,7 +2,7 @@ package com.example.movie_mobile.view
 
 import com.example.movie_mobile.R
 
-// Trending Movies
+//Movies
 val trendingMoviesImages = listOf(
     R.drawable.look_back,
     R.drawable.hq,
@@ -13,7 +13,7 @@ val trendingMoviesImages = listOf(
     R.drawable.mean_girls
 )
 
-// Trending Series
+//Series
 val trendingSeriesImages = listOf(
     R.drawable.shrinking,
     R.drawable.pachinko,

@@ -43,7 +43,7 @@ fun AppNavigation() {
                 onAllClicked = { navController.navigate("all") },
                 onMoviesClicked = { navController.navigate("movies") },
                 onSeriesClicked = { navController.navigate("series") },
-                onSearchClicked = { /* Implement Search Logic */ },
+                onSearchClicked = {  },
                 navController = navController,
                 viewModel = viewModel
             )

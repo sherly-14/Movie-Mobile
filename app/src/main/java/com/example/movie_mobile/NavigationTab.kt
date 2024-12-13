@@ -40,7 +40,7 @@ fun NavigationRow(
 }
 
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewNavigationRow() {
     NavigationRow(

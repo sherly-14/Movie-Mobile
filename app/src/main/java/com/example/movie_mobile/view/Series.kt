@@ -39,7 +39,6 @@ fun SeriesScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Konten sesuai tab yang dipilih
         when (selectedTab) {
             "Series" -> SeriesContent(navController)
         }

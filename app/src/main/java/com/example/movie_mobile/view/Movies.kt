@@ -3,7 +3,6 @@ package com.example.movie_mobile.view
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -43,7 +42,6 @@ fun MoviesScreen(navController: NavController, viewModel: MovieViewModel) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Konten sesuai tab yang dipilih
         when (selectedTab) {
             "Movies" -> MoviesContent(navController, movies.value)
         }

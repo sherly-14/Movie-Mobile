@@ -17,68 +17,92 @@ import com.example.movie_mobile.R
 import com.example.movie_mobile.ui.theme.MovieMobileTheme
 
 @Composable
-fun DetailScreen(){
+fun DetailScreen() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally)
+        horizontalAlignment = Alignment.CenterHorizontally
+    )
     {
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
+        Image(
+            painter = painterResource(R.drawable.look_back),
+            contentDescription = null,
+            modifier = Modifier
+                .width(300.dp)
+                .height(424.dp)
+        )
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
+        // Judul Film
+        Text(
+            text = "Look Back",
+            style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.Bold)
+        )
+
+        Spacer(modifier = Modifier.height(4.dp))
+
+        // GenrE
+        Text(
+            text = "Drama • Animation",
+            style = MaterialTheme.typography.bodyMedium
+        )
+
+        Spacer(modifier = Modifier.height(4.dp))
+
+        // Rating dan Durasi
+        Row(
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = painterResource(R.drawable.look_back),
-                contentDescription = null,
-                modifier = Modifier
-                    .width(395.dp)
-                    .height(558.dp)
-            )
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
-            // Judul Film
             Text(
-                text = "Look Back",
-                style = MaterialTheme.typography.headlineSmall.copy(
-                    fontWeight = FontWeight.Bold
-                )
+                text = "★ 4.3  |  58 mins",
+                style = MaterialTheme.typography.bodyMedium
             )
-
-            Spacer(modifier = Modifier.height(4.dp))
-
-            // Genre dan Informasi
-            Text(
-                text = "Drama • Animation",
-                style = MaterialTheme.typography.bodyMedium,
-                color = Color.Gray
-            )
-
-            Spacer(modifier = Modifier.height(4.dp))
-
-            // Rating dan Durasi
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "4.3",
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = Modifier.padding(start = 4.dp)
-                )
-                Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    text = "• 58 mins",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = Color.Gray
-                )
-            }
         }
+        Spacer(modifier = Modifier.height(4.dp))
+
+        // Direktor
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.align(Alignment.Start)
+        ) {
+            Text(
+                text = "Directed by",
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Spacer(modifier = Modifier.width(2.dp))
+            Text(
+                text = "Kiyotaka Oshiyama",
+                style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold)
+            )
+        }
+        Spacer(modifier = Modifier.height(4.dp))
+
+        // Aktor
+        Text(
+            text = "Yuumi Kawai • Mizuki Yoshida",
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.align(Alignment.Start)
+        )
+        Spacer(modifier = Modifier.height(4.dp))
+
+        // Sinopsis
+        Text(
+            text = "Popular, outgoing Fujino is celebrated by her classmates for her funny comics in " +
+                    "the class newspaper. One day, her teacher asks her to share the space with " +
+                    "Kyomoto, a truant recluse whose beautiful artwork sparks a competitive fervor " +
+                    "in Fujino. What starts as jealousy transforms when Fujino realizes their shared " +
+                    "passion for drawing.",
+            style = MaterialTheme.typography.bodyMedium,
+            modifier = Modifier.align(Alignment.Start)
+        )
+        Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun DetailPreview(){
+fun DetailPreview() {
     MovieMobileTheme {
         DetailScreen()
     }

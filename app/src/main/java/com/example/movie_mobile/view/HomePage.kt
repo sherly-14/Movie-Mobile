@@ -17,6 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.movie_mobile.NavigationRow
 
 
 @Composable
@@ -34,62 +35,27 @@ fun HomePage(
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
+        // NavigationRow untuk Tab Navigasi
+        NavigationRow(
+            selectedTab = selectedTab,
+            onTabSelected = { tab ->
+                selectedTab = tab
+                when (tab) {
+                    "All" -> onAllClicked()
+                    "Movies" -> onMoviesClicked()
+                    "Series" -> onSeriesClicked()
+                }
+            },
+            onSearchClicked = onSearchClicked
+        )
+
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Row untuk Button navigasi
-        Row {
-            Button(
-                onClick = {
-                    selectedTab = "All"
-                    onAllClicked()  // Mengaktifkan callback untuk All
-                },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA70000))
-            ) {
-                Text("All")
-            }
-            Spacer(modifier = Modifier.width(8.dp))
-            Button(
-                onClick = {
-                    selectedTab = "Movies"
-                    onMoviesClicked()  // Mengaktifkan callback untuk Movies
-                },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA70000))
-            ) {
-                Text("Movies")
-            }
-            Spacer(modifier = Modifier.width(8.dp))
-            Button(
-                onClick = {
-                    selectedTab = "Series"
-                    onSeriesClicked()  // Mengaktifkan callback untuk Series
-                },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFA70000))
-            ) {
-                Text("Series")
-            }
-            Spacer(modifier = Modifier.width(8.dp))
-            IconButton(onClick = onSearchClicked) {
-                Icon(Icons.Default.Search, contentDescription = "Search")
-            }
+        when (selectedTab) {
+            "All" -> AllContent()
+            "Movies" -> MoviesContent()
+            "Series" -> SeriesContent()
         }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-    }
-}
-
-
-@Composable
-fun SelectQuantityButton(
-    @StringRes labelResourceId: Int,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier
-) {
-    Button(
-        onClick = onClick,
-        modifier = modifier.widthIn(min = 250.dp)
-    ) {
-        Text(stringResource(labelResourceId))
     }
 }
 

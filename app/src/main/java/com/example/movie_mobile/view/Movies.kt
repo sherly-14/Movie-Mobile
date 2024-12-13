@@ -8,11 +8,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.movie_mobile.NavigationRow
 
-
 @Composable
-fun MoviesScreen() {
+fun MoviesScreen(navController: NavController) {
     var selectedTab by remember { mutableStateOf("Movies") }
 
     Column(
@@ -21,20 +22,27 @@ fun MoviesScreen() {
             .verticalScroll(rememberScrollState())
             .padding(16.dp)
     ) {
-        // Navigasi Row
+        // NavigationRow untuk berpindah tab
         NavigationRow(
             selectedTab = selectedTab,
             onTabSelected = { tab ->
-                selectedTab = tab
+                if (tab != selectedTab) {
+                    selectedTab = tab
+                    when (tab) {
+                        "All" -> navController.navigate("all")
+                        "Movies" -> navController.navigate("movies")
+                        "Series" -> navController.navigate("series")
+                    }
+                }
             },
-            onSearchClicked = { }
+            onSearchClicked = { /* Implement search logic */ }
         )
 
         Spacer(modifier = Modifier.height(16.dp))
 
         // Konten sesuai tab yang dipilih
         when (selectedTab) {
-            "Movies" -> MoviesContent()  // Menggunakan fungsi MoviesContent dari HomePage
+            "Movies" -> MoviesContent()
         }
     }
 }
@@ -42,5 +50,6 @@ fun MoviesScreen() {
 @Preview(showBackground = true)
 @Composable
 fun MoviesScreenPreview() {
-    MoviesScreen()
+    val dummyController = rememberNavController()
+    MoviesScreen(dummyController)
 }

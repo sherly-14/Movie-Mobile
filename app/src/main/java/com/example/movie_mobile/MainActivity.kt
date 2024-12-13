@@ -49,8 +49,8 @@ fun AppNavigation() {
                 onSearchClicked = { /* Implement Search Logic */ }
             )
         }
-        composable("all") { AllScreen() }
-        composable("movies") { MoviesScreen() }
-        composable("series") { SeriesScreen() }
+        composable("all") { AllScreen(navController) }
+        composable("movies") { MoviesScreen(navController) }
+        composable("series") { SeriesScreen(navController) }
     }
 }

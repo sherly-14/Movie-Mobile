@@ -5,6 +5,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -13,8 +14,10 @@ import androidx.navigation.compose.rememberNavController
 import com.example.movie_mobile.NavigationRow
 
 @Composable
-fun MoviesScreen(navController: NavController) {
+fun MoviesScreen(navController: NavController, viewModel: MovieViewModel) {
     var selectedTab by remember { mutableStateOf("Movies") }
+    val movies = viewModel.movies.observeAsState(listOf())
+    val navController = rememberNavController()
 
     Column(
         modifier = Modifier
@@ -42,7 +45,7 @@ fun MoviesScreen(navController: NavController) {
 
         // Konten sesuai tab yang dipilih
         when (selectedTab) {
-            "Movies" -> MoviesContent()
+            "Movies" -> MoviesContent(navController, movies.value)
         }
     }
 }
@@ -51,5 +54,5 @@ fun MoviesScreen(navController: NavController) {
 @Composable
 fun MoviesScreenPreview() {
     val dummyController = rememberNavController()
-    MoviesScreen(dummyController)
+    MoviesScreen(dummyController, viewModel = MovieViewModel())
 }

@@ -3,7 +3,6 @@ package com.example.movie_mobile.view
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,7 +41,7 @@ fun SeriesScreen(navController: NavController) {
 
         // Konten sesuai tab yang dipilih
         when (selectedTab) {
-            "Series" -> SeriesContent()
+            "Series" -> SeriesContent(navController)
         }
     }
 }
